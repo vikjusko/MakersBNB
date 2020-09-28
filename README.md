@@ -1,6 +1,13 @@
 # MakersBNB
 Makers BNB group project
 
+<<<<<<< HEAD
+=======
+
+# MakersBNB
+Makers BNB group project
+
+>>>>>>> 2afbacd98247ad87409938cc8f1b73e541073cdc
 Process flow:
 https://app.lucidchart.com/documents/edit/a9ff61bd-ee1c-41c0-a397-5ca1240fd531/m-5o7ONTd-nK?shared=true#?folder_id=home&browser=icon
 
