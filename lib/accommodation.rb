@@ -9,8 +9,4 @@ attr_reader :name, :description, :location, :price
     @price = price
   end
 
-  def self.show
-    
-  end
-
 end
