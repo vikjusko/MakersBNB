@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'pg'
-
+require 'database_connection'
 
 class MakersBNB < Sinatra::Base
 
