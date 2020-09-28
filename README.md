@@ -1,7 +1,6 @@
 # MakersBNB
 Makers BNB group project
 
-<<<<<<< HEAD
 =======
 
 # MakersBNB
