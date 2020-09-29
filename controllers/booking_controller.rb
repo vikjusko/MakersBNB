@@ -1,7 +1,7 @@
 class BookingController < Sinatra::Base
 
   get '/bookings' do
-    'TO DO'
+    erb :booking
   end
 
   run! if app_file == $0
