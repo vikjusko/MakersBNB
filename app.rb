@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'pg'
-require 'database_connection'
+require_relative './lib/database_connection'
 require './database_connection_setup'
 
 class MakersBNB < Sinatra::Base
@@ -11,6 +11,10 @@ class MakersBNB < Sinatra::Base
 
 	get '/accommodation' do
 		'Nice cottage in Deptford'
+	end 
+
+	get '/booking' do 
+		erb :booking
 	end 
 
 	

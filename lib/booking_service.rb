@@ -15,9 +15,9 @@ class BookingService
     result.map { |booking| 
       Booking.new(
         id: booking['id'],
-        accommodation_id['accommodation_id']
-        user_email['user_email']
-        date['date']
+        accommodation_id: booking['accommodation_id'],
+        user_email: booking['user_email'],
+        date: booking['date']
         )
     }
   end
