@@ -1,8 +1,9 @@
 class Accommodation
 
-attr_reader :name, :description, :location, :price
+attr_reader :id, :name, :description, :location, :price
 
-  def initialize(name: , description: , location: , price:)
+  def initialize( id:, name: , description: , location: , price:)
+    @id = id
     @name = name
     @description = description
     @location = location
