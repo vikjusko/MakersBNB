@@ -9,6 +9,8 @@ describe Accommodation do
       expect(space.name).to eq "Cottage"
       expect(space.location).to eq "London"
       expect(space.price).to eq 40
+      #expect(Accommodation).to respond_to(:new).with(4).arguments 
+      # ^ this one doesn't work.
     end
   end
 
