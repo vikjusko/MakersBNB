@@ -5,7 +5,7 @@ class BookingController < Sinatra::Base
     erb :booking
   end
 
-  post '/booking/:id/new' do
+  post '/booking/new' do
     accommodation_id = @accommodation_id #this will be passed in from the accommodation_controller
 
     BookingService.create(accommodation_id: accommodation_id, user_email: params[:user_email], date: params[:date])
