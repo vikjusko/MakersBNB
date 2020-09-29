@@ -11,4 +11,12 @@ feature 'View accommodation details' do
     expect(page).to have_content('£40')
     expect(page).not_to have_content('Beach shack')
   end
+
+  scenario 'Displays a Request booking takes to booking form' do
+    load_test_accom
+    visit '/accommodations/1'
+    expect(page).to have_link('Request Booking', href: '/booking')
+    click_link('Request Booking')
+    expect(page).to have_current_path('/booking')
+  end
 end

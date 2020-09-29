@@ -6,9 +6,20 @@
 </head>
 
 <body>
-<%= @accommodation.name %><br>
-<%= @accommodation.description %><br>
-<%= @accommodation.location %><br>
-£<%= @accommodation.price %><br>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= @accommodation.name %></h5>
+    <p class="card-text"><%= @accommodation.description %></p>
+  </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @accommodation.location %></li>
+    <li class="list-group-item">£<%= @accommodation.price %></li>
+  </ul>
+ <a href="/booking" class="btn btn-primary">Request Booking</a>
+</div>
+
+
 </body>
 </html>
