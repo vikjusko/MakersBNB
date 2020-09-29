@@ -1,6 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Makers BnB accommodations</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
 <% @accommodation_list.each do |space| %>
-<%= space.name%> <br>
-<form action="/accommodations/<%= space.id%>" method='post'>
-<input type='submit' value='See more'>
-</form>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= space.name%></h5>
+    <p class="card-text"><%= space.description%></p>
+    <a href="/accommodations/<%= space.id%>" class="btn btn-primary">See more</a>
+  </div>
+</div>
 <% end %>
+</body>
