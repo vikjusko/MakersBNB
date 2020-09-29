@@ -4,9 +4,10 @@ require 'accommodation'
 describe BookingService do 
 	describe "#create" do
 		it "creates a new booking" do
-		accommodation = Accommodation.new(name: "Daptford cottage", description: "Lovely cottage", location: "Daptrford", price: "£120.00")
-    bookingservice = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
-    persisted_data = persisted_data(id: booking.id)
+		accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", price: 40)
+		bookingservice = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
+		p accommodation.id
+    #persisted_data = persisted_data(id: booking.id)
     expect(bookingservice).to be_a BookingService
     expect(bookingservice.id).to eq persisted_data["id"]
     expect(bookingservice.accommodation_id).to eq accommodation.id
