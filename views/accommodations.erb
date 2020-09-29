@@ -1,0 +1,6 @@
+<% @accommodation_list.each do |space| %>
+<%= space.name%> <br>
+<form action="/accommodations/<%= space.id%>" method='post'>
+<input type='submit' value='See more'>
+</form>
+<% end %>
