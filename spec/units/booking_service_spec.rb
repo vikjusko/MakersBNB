@@ -18,7 +18,7 @@ describe BookingService do
       accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", price: 40)
 
       bookingservice = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
-      
+
       bookings = BookingService.all
 			expect(bookings).to be_a Array
       expect(bookings.first.user_email).to eq "test@test.com"
