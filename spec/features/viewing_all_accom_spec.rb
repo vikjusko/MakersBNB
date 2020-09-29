@@ -1,7 +1,7 @@
 require './spec/database_helper'
 
 feature 'View all accommodation' do
-  scenario 'A list of accommodation is viewed on sceen' do
+  scenario 'A list of accommodation is displayed on screen' do
     load_test_accom
     visit '/'
     click_button("View accommodation")

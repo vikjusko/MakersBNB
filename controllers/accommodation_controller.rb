@@ -11,8 +11,8 @@ class AccommodationController < Sinatra::Base
     erb :accommodations
   end
 
-  post 'accommodations/id' do
-     "Hello World"
+  get '/accommodations/:id' do
+    @accommodation_list = AccommodationService.all
   end
 
   run! if app_file == $0
