@@ -1,7 +1,7 @@
 require 'database_connection'
 
 describe DatabaseConnection do
-  let(:conn_string) { "host=makersbnb-test.c5dg1llsxcel.eu-west-2.rds.amazonaws.com port=5432 user=team_red password=cc8kej!kd" }
+  let(:conn_string) { "host=makersbnb.c4gsfvuzdyl3.eu-west-2.rds.amazonaws.com port=5433 user=postgres password=785njsjas88## dbname=makersbnb_test" }
 
   describe '.setup' do
     it 'sets up a database connection using PG' do
