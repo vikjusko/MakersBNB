@@ -11,5 +11,15 @@ describe BookingService do
 		expect(bookingservice.user_email).to eq("test@test.com")
 		expect(booking_service.date).to eq("2020-09-29")
   	end
-	end
+  end
+
+  describe '#all' do
+    it "produces a list of all bookings" do
+      bookingservice = BookingService.create(accommodation_id: 4, user_email: "test@test.com", date: "2020-09-29")
+      bookings = bookingservice.all
+
+      expect(bookings.first.accommodation_id).to eq 4
+      expect(bookings.first.user_email).to eq "test@test.com"
+    end
+  end
 end 
