@@ -1,7 +1,6 @@
 require 'booking'
 require 'accommodation'
 
-
 describe Booking do
   let(:space) { Accomodation.new(name: "Cottage", description: "Nice cottage in Deptford", location: "London", price: 40)}
 
