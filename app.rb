@@ -1,26 +1,16 @@
 require 'sinatra/base'
 require 'pg'
-require_relative './lib/database_connection'
+
+require './lib/database_connection'
 require './database_connection_setup'
 
-class MakersBNB < Sinatra::Base
+require './controllers/application_controller'
+require './controllers/accommodation_controller'
+require './controllers/booking_controller'
 
-	get '/' do 
-		erb :index
-	end 
 
-	get '/accommodation' do
-		'Nice cottage in Deptford'
-	end 
 
-	get '/booking' do 
-		erb :booking
-	end 
 
-	
-	run if app_file == $0
-
-end 
 
 
 

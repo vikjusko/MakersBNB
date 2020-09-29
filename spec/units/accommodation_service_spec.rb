@@ -1,4 +1,4 @@
-require './lib/accommodation_service.rb'
+require './lib/accommodation_service'
 
 
 describe AccommodationService do
