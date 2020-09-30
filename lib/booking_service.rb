@@ -21,4 +21,4 @@ class BookingService
         )
     }
   end
-end 
+end
