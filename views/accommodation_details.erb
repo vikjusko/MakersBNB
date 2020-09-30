@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accommodation Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= @accommodation.name %></h5>
+    <p class="card-text"><%= @accommodation.description %></p>
+  </div>
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @accommodation.location %></li>
+    <li class="list-group-item">£<%= @accommodation.price %></li>
+  </ul>
+ <a href="/booking" class="btn btn-primary">Request Booking</a>
+</div>
+
+
+</body>
+</html>
