@@ -7,4 +7,7 @@ feature 'making a booking' do
     click_on("Request booking")
     expect(page).to have_content("Booking submitted")
   end
+
+  # add test for non-functional email.
+
 end
