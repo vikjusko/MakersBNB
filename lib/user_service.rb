@@ -1,14 +1,14 @@
 require 'bcrypt'
 
-require_relative './user'
-require_relative './database_connection'
+require './lib/user'
+require './lib/database_connection'
+
 
 class UserService
 
   def self.register(email:, name:, password:)
     result = DatabaseConnection.query("INSERT INTO users (email, name, password)
-        VALUES('#{email}', '#{name}', '#{BCrypt::Password.create(password)}')
-        RETURNING id, email, name;")
+        VALUES('#{email}', '#{name}', '#{BCrypt::Password.create(password)}') RETURNING id, email, name;")
     @user = User.new(id: result[0]['id'], email: result[0]['email'], name: result[0]['name'])
   end
 

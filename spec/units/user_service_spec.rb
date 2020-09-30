@@ -1,21 +1,20 @@
 require 'user_service'
 require 'user'
-# require 'database_helpers'
+require 'database_connection'
 
 describe UserService do
 
   describe '.register' do
     it 'stores a new user using PG' do
-      UserService.register(id: '1', name: 'test name', email: 'test@email.com', password: 'pword123')
-      expect(PG).to receive(:exec).once
+      expect(DatabaseConnection).to receive(:query).once
+      UserService.register(name: 'test name', email: 'test@email.com', password: 'pword123')
     end
 
     it 'returns the new user' do
-      user = UserService.register(id: '1', name: 'test name', email: 'test@email.com', password: 'pword123')
+      user = UserService.register(name: 'test name', email: 'test@email.com', password: 'pword123')
       expect(user).to be_a User
-      expect(user.id).to eq '1'
       expect(user.name).to eq 'test name'
-      expect(user.user_email).to eq("test@email.com")
+      expect(user.email).to eq("test@email.com")
     end
   end
   #
