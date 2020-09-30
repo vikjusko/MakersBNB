@@ -1,14 +1,16 @@
+require './lib/booking_service'
+
 class BookingController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
+
+  enable :sessions
 
   get '/booking' do
     erb :booking
   end
 
-  post '/booking/:id/new' do
-    accommodation_id = @accommodation_id #this will be passed in from the accommodation_controller
-
-    BookingService.create(accommodation_id: accommodation_id, user_email: params[:user_email], date: params[:date])
+  post '/booking/new' do
+    BookingService.create(accommodation_id: session[:accommodation_id], user_email: params[:user_email], date: params[:date])
 
     erb :booking_request
   end
