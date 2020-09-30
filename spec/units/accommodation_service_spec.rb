@@ -24,10 +24,15 @@ describe AccommodationService do
   end
 
   describe '#.create' do
-    it 'adds a new listing' do
-      accom = AccommodationService.create(name: 'Caravan', description: 'An absolute hell hole in the middle of nowhere', location: 'Blackpool', price: 120, host_id: 7)
+    it 'adds a new listing AND check host_id is assigned' do
+      user = DatabaseConnection.query("INSERT INTO users(name, email, password) VALUES('Xavier', 'test@test.com', 'kjdhfghskfdg') RETURNING id;")
+      accom = AccommodationService.create(name: 'Caravan', description: 'An absolute hell hole in the middle of nowhere', location: 'Blackpool', price: 120, host_id: user.first['id'])
+      persisted_data = persisted_data(id: accom.id)
+      expect(accom.id).to eq persisted_data['id']
       expect(accom).to be_an_instance_of(Accommodation)
-      # Add eq persisted_data['id']
+      expect(accom.name).to eq('Caravan')
+      expect(accom.price).to eq("120")
+   end
   end
 
 end

@@ -9,7 +9,7 @@ class AccommodationService
   end
 
   def self.create(name:, description:, location:, price:, host_id:)
-    result = DatabaseConnection.query("INSERT INTO accommodation (name, description, location, price, host_id) VALUES('#{name}', '#{description}', '#{location}', '#{price}', '#{host_id}) RETURNING id, name, description, location, price, host_id;")
+    result = DatabaseConnection.query("INSERT INTO accommodation(name, description, location, price, host_id) VALUES('#{name}', '#{description}', '#{location}', '#{price}', '#{host_id}') RETURNING id, name, description, location, price, host_id;")
     Accommodation.new(id: result[0]["id"], name: result[0]["name"], description: result[0]['description'], location: result[0]["location"], price: result[0]['price'], host_id: result[0]['host_id'])
   end
 
