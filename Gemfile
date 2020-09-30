@@ -7,7 +7,8 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 # gem "rails"
 gem 'sinatra'
 gem 'shotgun'
-gem 'pg' 
+gem 'pg'
+gem 'bcrypt'
 group :test do
 gem 'rubocop'
 gem 'simplecov', require: false
