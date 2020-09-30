@@ -6,11 +6,12 @@ class BookingController < Sinatra::Base
   enable :sessions
 
   get '/booking' do
+    @accommodation_id = params[:accommodation_id]
     erb :booking
   end
 
   post '/booking/new' do
-    BookingService.create(accommodation_id: session[:accommodation_id], user_email: params[:user_email], date: params[:date])
+    BookingService.create(accommodation_id: params[:accommodation_id], user_email: params[:user_email], date: params[:date])
 
     erb :booking_request
   end

@@ -15,8 +15,8 @@ feature 'View accommodation details' do
   scenario 'Displays a Request booking takes to booking form' do
     load_test_accom
     visit '/accommodations/1'
-    expect(page).to have_link('Request Booking', href: '/booking')
+    expect(page).to have_link('Request Booking', href: '/booking?accommodation_id=1')
     click_link('Request Booking')
-    expect(page).to have_current_path('/booking')
+    expect(page).to have_current_path('/booking?accommodation_id=1')
   end
 end
