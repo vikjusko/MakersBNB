@@ -1,4 +1,4 @@
-require 'booking'
+require_relative 'booking'
 require_relative 'database_connection'
 #require_relative '../database_connection_setup.rb'
 
