@@ -16,6 +16,10 @@ class AccommodationController < Sinatra::Base
     erb :accommodation_details
   end
 
+  get '/create' do
+    erb :accommodation_create
+  end
+
   run! if app_file == $0
 
 end
