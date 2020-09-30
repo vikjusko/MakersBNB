@@ -6,7 +6,6 @@ class AccommodationController < Sinatra::Base
   enable :sessions
 
   get '/accommodations' do
-
     @accommodation_list = AccommodationService.all
     erb :accommodations
   end

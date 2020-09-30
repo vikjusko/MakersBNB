@@ -23,4 +23,11 @@ describe AccommodationService do
     end
   end
 
+  describe '#.create' do
+    it 'adds a new listing' do
+      accom = AccommodationService.create(name: 'Caravan', description: 'An absolute hell hole in the middle of nowhere', location: 'Blackpool', price: 120, host_id: 7)
+      expect(accom).to be_an_instance_of(Accommodation)
+      # Add eq persisted_data['id']
+  end
+
 end
