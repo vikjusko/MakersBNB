@@ -6,6 +6,8 @@ class HostService
   # def self.find_host_accommodation
   #   DatabaseConnection.query("SELECT * FROM accommodation WHERE host_id = '#{host_id}';")
   # end
+  #
+
 
   def self.find_pending_requests(host_id)
     result = DatabaseConnection.query(
@@ -18,6 +20,12 @@ class HostService
       Booking.new(id: b['id'], accommodation_id: b['accommodation_id'],
         user_email: b['user_email'], date: b['date'], status: b['status'])
     end
+  end
+
+  def self.approve_request(booking_id)
+    # TODO return false booking not found
+    # TODO return false if current user is not host for booking accom
+    BookingService.confirm_booking(booking_id)
   end
 
 

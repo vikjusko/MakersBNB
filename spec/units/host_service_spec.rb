@@ -31,4 +31,37 @@ describe HostService do
       expect(pending_requests.count).to eql 0
     end
   end
+
+  describe '#.approve_request(booking_id)' do
+    context 'current user is the accommodation host' do
+      it 'sends a message to BookingService to confirm booking' do
+        load_test_user
+        load_test_accom
+        booking_id = '21'
+        DatabaseConnection.query(
+          "INSERT INTO booking(id, accommodation_id, user_email, date, status)
+          VALUES(#{booking_id}, 1, 'test@user.com', '2020-09-29', 'PENDING');")
+
+        expect(BookingService).to receive(:confirm_booking).once.with(booking_id)
+        HostService.approve_request(booking_id)
+      end
+
+      it 'returns the updated booking object' do
+        load_test_user
+        load_test_accom
+        booking_id = '21'
+        DatabaseConnection.query(
+          "INSERT INTO booking(id, accommodation_id, user_email, date, status)
+          VALUES(#{booking_id}, 1, 'test@user.com', '2020-09-29', 'PENDING');")
+
+        actual = HostService.approve_request(booking_id)
+        expect(actual).to be_a(Booking)
+        expect(actual.id).to eq(booking_id)
+        expect(actual.status).to eq('CONFIRMED')
+      end
+    end
+  end
+
+  # TODO booking not found
+  # TODO current user not the host for the booking accom
 end

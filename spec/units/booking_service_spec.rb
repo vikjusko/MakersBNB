@@ -52,16 +52,23 @@ describe BookingService do
     end
 
     describe '.confirm_booking(booking_id)' do
-      it 'updates the booking status to CONFIRMED and returns the updated booking' do
-        load_test_user
-        load_test_accom
-        booking = BookingService.create(accommodation_id: 1, user_email: "test@test.com", date: "2020-09-29")
-        actual = BookingService.confirm_booking(booking.id)
+      context 'booking date is available' do
+        it 'updates the booking status to CONFIRMED and returns the updated booking' do
+          load_test_user
+          load_test_accom
+          booking = BookingService.create(accommodation_id: 1, user_email: "test@test.com", date: "2020-09-29")
+          actual = BookingService.confirm_booking(booking.id)
 
-        expect(actual).to be_an_instance_of(Booking)
-        expect(actual.id).to eq(booking.id)
-        expect(actual.status).to eq 'CONFIRMED'
+          expect(actual).to be_an_instance_of(Booking)
+          expect(actual.id).to eq(booking.id)
+          expect(actual.status).to eq 'CONFIRMED'
+        end
       end
+
+      context 'booking date is not available' do
+        #TODO once the availability checks are done
+      end
+
     end
 
   end
