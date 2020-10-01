@@ -7,7 +7,7 @@ class MakersBNB < Sinatra::Base
 
   get '/' do
     @user = UserService.current_user
-    erb :index
+    redirect('/accommodations')
   end
 
   run! if app_file == $0
