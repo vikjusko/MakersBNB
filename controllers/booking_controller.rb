@@ -6,8 +6,12 @@ class BookingController < Sinatra::Base
 
   enable :sessions
 
+  def layout
+    { :layout => :layout }
+  end
+
   get '/layout-test' do
-    erb :booking, :layout => :layout
+    erb :booking, layout
   end
 
   get '/booking' do
