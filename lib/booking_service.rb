@@ -8,6 +8,7 @@ class BookingService
     result = DatabaseConnection.query("INSERT INTO booking(accommodation_id, user_email, date, status) VALUES(#{accommodation_id}, '#{user_email}', '#{date}', '#{DEFAULT_STATUS}') RETURNING id, accommodation_id, user_email, date, status;")
 		Booking.new(id: result[0]['id'], accommodation_id: result[0]['accommodation_id'], user_email: result[0]['user_email'], date: result[0]['date'], status: result[0]['status'])
   end
+
   def self.all
     result = DatabaseConnection.query("SELECT * FROM booking")
     result.map { |booking| 
@@ -19,5 +20,19 @@ class BookingService
         status: booking['status']
         )
     }
+  end
+
+  def self.find_booking(booking_id)
+    result = DatabaseConnection.query(
+      "SELECT * FROM booking WHERE id = '#{booking_id}'")
+    return false unless result.count == 1
+    booking = result[0]
+    Booking.new(
+      id: booking['id'],
+      accommodation_id: booking['accommodation_id'],
+      user_email: booking['user_email'],
+      date: booking['date'],
+      status: booking['status']
+    )
   end
 end
