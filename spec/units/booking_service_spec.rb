@@ -51,5 +51,18 @@ describe BookingService do
       expect(BookingService.find_booking(booking.id.to_i+1)).to eq false
     end
 
+    describe '.confirm_booking(booking_id)' do
+      it 'updates the booking status to CONFIRMED and returns the updated booking' do
+        load_test_user
+        load_test_accom
+        booking = BookingService.create(accommodation_id: 1, user_email: "test@test.com", date: "2020-09-29")
+        actual = BookingService.confirm_booking(booking.id)
+
+        expect(actual).to be_an_instance_of(Booking)
+        expect(actual.id).to eq(booking.id)
+        expect(actual.status).to eq 'CONFIRMED'
+      end
+    end
+
   end
 end 
