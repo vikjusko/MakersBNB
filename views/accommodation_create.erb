@@ -1,1 +1,17 @@
 name, location, description, price, from_date, to_date
+
+<form action='/accommodations/new' method='post'>
+Name: 
+<input type='text' name='name'><br>
+Description: 
+<input type='text' name='description'><br>
+Location: 
+<input type='text' name='location'><br>
+Price: 
+<input type="number" min="20" step="1" max="2500" name='price'><br>
+From Date: 
+<input type='date' name='from_date'><br>
+To Date: 
+<input type='date' name='to_date'><br>
+<input type='submit' value='Submit'>
+</form>

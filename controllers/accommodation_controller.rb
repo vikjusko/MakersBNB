@@ -10,14 +10,20 @@ class AccommodationController < Sinatra::Base
     erb :accommodations
   end
 
+  get '/accommodations/create' do
+    erb :accommodation_create
+  end
+
+  post '/accommodations/new' do
+    AccommodationService.create(name: params[:name], description: params[:description], location: params[:location], price: params[:price], host_id: 6)
+    
+    redirect '/'
+  end
+
   get '/accommodations/:id' do
     @accommodation = AccommodationService.find(params[:id])
     session[:accommodation_id] = @accommodation.id
     erb :accommodation_details
-  end
-
-  get '/create' do
-    erb :accommodation_create
   end
 
   run! if app_file == $0
