@@ -10,7 +10,7 @@ class UserController < Sinatra::Base
   end
 
   post '/users/new' do
-    # UserService.register(email: params[:email], name: params[:name], password: params[:password])
+    UserService.register(email: params[:email], name: params[:name], password: params[:password])
     redirect '/'
   end
 

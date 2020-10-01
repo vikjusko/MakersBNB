@@ -33,6 +33,14 @@ describe UserService do
   
       expect(UserService.login(email: 'test@gmail.com', password: 'wrong-password')).to eq false
     end
-  
   end
+
+  describe "#log_out" do
+    it "returns a current user as nil after user has logged out" do
+      user = UserService.register(name: "test name", email: "test@email.com", password: "pword123")
+      auth = UserService.login(email: "test@email.com", password: "pword123")
+      UserService.logout
+      expect(UserService.current_user).to be nil
+    end 
+  end 
 end
