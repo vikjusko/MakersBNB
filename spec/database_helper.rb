@@ -15,3 +15,8 @@ def persisted_data(id:)
   result = connection.query("SELECT * FROM accommodation WHERE id = #{id};")
   result.first
 end
+
+def load_test_user
+  connection = PG.connect("host=makersbnb.c4gsfvuzdyl3.eu-west-2.rds.amazonaws.com port=5433 user=postgres password=785njsjas88## dbname=makersbnb_test")
+  connection.exec("INSERT INTO users (name, email, password) VALUES('test_name', 'test_email@email.com', '#{BCrypt::Password.create('password123')}') RETURNING id, name, email;")
+end
