@@ -1,4 +1,4 @@
-feature 'user can only log ' do
+feature '#logging out' do
 	scenario "if the user is logged in/signed up they can log out" do
 		visit "/"
 		click_button "Sign up"
@@ -10,6 +10,7 @@ feature 'user can only log ' do
 		click_button 'Log out'
 		expect(page).not_to have_content 'Welcome Test User'
 		expect(page).to have_content("You have signed out")
+		UserService.logout
 	end 
 end 
 
