@@ -12,7 +12,8 @@ class HostController < Sinatra::Base
   end
 
   get '/hosting' do
-    "You aren't hosting any properties yet."
+    erb :hosting
+    
   end
 
 end

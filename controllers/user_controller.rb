@@ -37,8 +37,6 @@ class UserController < Sinatra::Base
       redirect '/login'
     end
   end
-  
-  
 
   run! if app_file == $0
 
