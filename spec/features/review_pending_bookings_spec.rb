@@ -7,8 +7,8 @@ feature 'reviewing a pending booking' do
     fill_in('email', with: 'test_email@email.com')
     fill_in('password', with: 'password123')
     click_button('Log in')
-    expect(page).to have_button('Host portal')
-    click_button('Host portal')
+    expect(page).to have_link('Hosting')
+    click_link('Hosting')
     expect(page).to have_content("You aren't hosting any properties yet.")
   end
 end
