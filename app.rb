@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require 'pg'
-
+require 'sinatra/flash'
 require './lib/database_connection'
 require './database_connection_setup'
 

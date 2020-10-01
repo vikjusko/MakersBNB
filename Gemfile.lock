@@ -77,6 +77,8 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     strscan (1.0.3)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
@@ -98,6 +100,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   sinatra
+  sinatra-flash (~> 0.3.0)
 
 BUNDLED WITH
    2.1.4

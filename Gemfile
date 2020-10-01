@@ -9,6 +9,7 @@ gem 'sinatra'
 gem 'shotgun'
 gem 'pg'
 gem 'bcrypt'
+gem 'sinatra-flash', '~> 0.3.0'
 group :test do
 gem 'rubocop'
 gem 'simplecov', require: false
