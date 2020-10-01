@@ -10,7 +10,7 @@ feature 'Register user' do
     expect(page).to have_current_path('/')
     expect(page).not_to have_button('Sign up')
     expect(page).to have_content('Welcome Test User')
-    log_out
+    UserService.logout
   end
 
 end
