@@ -13,7 +13,6 @@ class AccommodationController < Sinatra::Base
 
   get '/accommodations/:id' do
     @accommodation = AccommodationService.find(params[:id])
-    session[:accommodation_id] = @accommodation.id
     erb :accommodation_details
   end
 
