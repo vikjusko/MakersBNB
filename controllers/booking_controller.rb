@@ -27,7 +27,6 @@ class BookingController < Sinatra::Base
 
   post '/booking/new' do
     BookingService.create(accommodation_id: params[:accommodation_id], user_email: params[:user_email], date: params[:date])
-
     erb :booking_request
   end
 

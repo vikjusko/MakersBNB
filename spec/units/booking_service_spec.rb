@@ -1,6 +1,7 @@
 require 'booking_service'
 require 'accommodation'
 
+<<<<<<< HEAD
 describe BookingService do
 	describe ".create" do
 		it "creates a new booking with the details given and sets status to PENDING" do
@@ -13,6 +14,17 @@ describe BookingService do
       expect(booking.user_email).to eq("test@test.com")
       expect(booking.date).to eq("2020-09-29")
       expect(booking.status).to eq 'PENDING'
+=======
+describe BookingService do 
+	describe "#create" do
+		it "creates a new booking" do
+		accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40)
+		bookingservice = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
+    expect(bookingservice).to be_a Booking
+    expect(bookingservice.accommodation_id).to eq accommodation.id
+		expect(bookingservice.user_email).to eq("test@test.com")
+		expect(bookingservice.date).to eq("2020-09-29")
+>>>>>>> 14a1477... (WIP) Test checking if date selected is available
   	end
   end
 
@@ -28,6 +40,7 @@ describe BookingService do
     end
   end
 
+<<<<<<< HEAD
   describe '.find_booking(id)' do
     it 'returns a booking object for the given id if it exists' do
       load_test_user
@@ -73,3 +86,11 @@ describe BookingService do
 
   end
 end 
+=======
+  describe '#.date_available?' do
+    it 'returns false if date selected is ' do
+
+    end
+  end
+end 
+>>>>>>> 14a1477... (WIP) Test checking if date selected is available

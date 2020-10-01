@@ -19,6 +19,7 @@ class BookingService
     }
   end
 
+<<<<<<< HEAD
   def self.find_booking(booking_id)
     result = DatabaseConnection.query(
       "SELECT * FROM booking WHERE id = '#{booking_id}'")
@@ -47,6 +48,11 @@ class BookingService
       date: booking['date'],
       status: booking['status']
     )
+=======
+  def self.date_available?(date_selected)
+    booking = DatabaseConnection.query("SELECT * FROM booking WHERE date = '#{date_selected}';")
+    return false unless booking.count == 1
+>>>>>>> 14a1477... (WIP) Test checking if date selected is available
   end
 
 end
