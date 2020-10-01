@@ -1,9 +1,11 @@
 <form action="/accommodations" method="get">
   <input type='submit' value="View accommodation">
 </form>
-
 <% if @user %>
 <h3> Welcome <%= @user.name %> </h3>
+<form action='/log-out' method='post'>
+<input type='submit' value="Log out">
+</form>
 <%else %>
 <form action='/sign-up' method ='get' >
 <input type='submit' value="Sign up">

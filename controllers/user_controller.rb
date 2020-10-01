@@ -18,7 +18,13 @@ class UserController < Sinatra::Base
   get '/login' do 
     erb :login
   end 
-  
+   
+  post '/log-out' do
+    UserService.logout
+    flash[:notice] = "You have signed out"
+    redirect "/"
+  end
+
   post '/login' do
     if UserService.login(email: params[:email], password: params[:password])
       redirect '/'
@@ -28,10 +34,7 @@ class UserController < Sinatra::Base
     end
   end
   
-  post '/logout' do
-    UserService.logout
-    redirect '/'
-  end
+  
 
   run! if app_file == $0
 
