@@ -12,14 +12,13 @@ class AccommodationController < Sinatra::Base
   end
 
   get '/accommodations/create' do
-   
-    
     erb :accommodation_create
   end
 
   post '/accommodations/create' do
     host = UserService.current_user
-    AccommodationService.create(name: params[:name], description: params[:description], location: params[:location], price: params[:price], host_id: host.id)
+    AccommodationService.create(name: params[:name], description: params[:description], location: params[:location], price: params[:price], from_date: params[:from_date], to_date: params[:to_date], host_id: host.id)
+    p params
     #TODO add Availabilty.create method to deal with dates
     redirect '/'
   end
