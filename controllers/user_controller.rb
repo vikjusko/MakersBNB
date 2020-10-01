@@ -1,9 +1,10 @@
 # require './lib/user_service'
-
+require 'sinatra/flash'
 class UserController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/sign-up' do
     erb :sign_up
@@ -14,15 +15,26 @@ class UserController < Sinatra::Base
     redirect '/'
   end
 
-  # post '/login' do
-  #   flash[:notice] = "Invalid credentials" unless UserService.login(params[:username], params[:password])
-  #   redirect '/'
-  # end
-  #
-  # post '/logout' do
-  #   UserService.logout
-  #   redirect '/'
-  # end
+  get '/login' do 
+    erb :login
+  end 
+   
+  post '/log-out' do
+    UserService.logout
+    flash[:notice] = "You have signed out"
+    redirect "/"
+  end
+
+  post '/login' do
+    if UserService.login(email: params[:email], password: params[:password])
+      redirect '/'
+    else  
+      flash[:notice] = "Invalid credentials" 
+      redirect '/login'
+    end
+  end
+  
+  
 
   run! if app_file == $0
 
