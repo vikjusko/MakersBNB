@@ -1,6 +1,15 @@
 feature 'create a listing' do
   scenario 'host_id clicks on Add Accom and fills out a form' do
     visit '/'
+    
+    
+    click_button('Sign up')
+		expect(page).to have_current_path('/sign-up')
+		fill_in('email', with: 'test@test.com')
+		fill_in('password', with: '1234567')
+    click_button('Sign up')
+    
+
     click_button('Add Listing')
     expect(current_path).to eq '/accommodations/create'
     fill_in('name', with: 'Caravan')
@@ -10,6 +19,7 @@ feature 'create a listing' do
     fill_in('from_date', with: '2020-09-21')
     fill_in('to_date', with: '2020-10-19')
     click_button('Submit')
+    UserService.logout
     #expect(page).to have_content('Your Caravan listing has been added.')
   end
 end
