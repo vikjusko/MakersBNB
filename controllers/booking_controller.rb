@@ -5,6 +5,10 @@ class BookingController < Sinatra::Base
 
   enable :sessions
 
+  get '/layout-test' do
+    erb :booking, :layout => :layout
+  end
+
   get '/booking' do
     @accommodation_id = params[:accommodation_id]
     erb :booking
