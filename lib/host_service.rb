@@ -14,4 +14,6 @@ class HostService
       AND b.status = 'PENDING';")
     result.map { |b| Booking.new(id: b['id'], accommodation_id: b['accommodation_id'], user_email: b['user_email'], date: b['date'], status: b['status']) }
   end
+
+
 end
