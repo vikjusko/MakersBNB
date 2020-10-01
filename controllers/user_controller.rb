@@ -19,10 +19,10 @@ class UserController < Sinatra::Base
     erb :login
   end 
    
-  post '/log-out' do
+  get '/log-out' do
     UserService.logout
-    flash[:notice] = "You have signed out"
-    redirect "/"
+    flash[:notice] = "You have signed out."
+    redirect '/'
   end
 
   post '/login' do

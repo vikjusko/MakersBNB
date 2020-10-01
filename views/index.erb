@@ -1,9 +1,10 @@
 <form action="/accommodations" method="get">
   <input type='submit' value="View accommodation">
 </form>
+<p id="flash"><%= flash[:notice] %></p>
 <% if @user %>
 <h3> Welcome <%= @user.name %> </h3>
-<form action='/log-out' method='post'>
+<form action='/log-out' method='get'>
 <input type='submit' value="Log out">
 </form>
 <%else %>
