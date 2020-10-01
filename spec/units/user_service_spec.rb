@@ -18,8 +18,6 @@ describe UserService do
     end
   end
   
- 
-
   
   describe '#self_login' do
     it 'returns a user given a correct email  and password, if one exists' do
