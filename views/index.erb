@@ -4,3 +4,11 @@
 <form action="/accommodations/create" method="get">
   <input type='submit' value="Add Listing">
 </form>
+
+<% if @user %>
+<h3> Welcome <%= @user.name %> </h3>
+<%else %>
+<form action='/sign-up' method ='get' >
+<input type='submit' value="Sign up">
+</form>
+<% end %>
