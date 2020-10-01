@@ -10,20 +10,13 @@ def load_test_accom
   connection.exec("INSERT INTO accommodation(id, name, description, location, price) VALUES(2, 'Beach shack', 'A first floor apartment with spectacular views and bright and airy decor that echoes the sea in every room.', 'Cornwall', 60);")
 end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 def persisted_data(id:)
   connection = PG.connect("host=makersbnb.c4gsfvuzdyl3.eu-west-2.rds.amazonaws.com port=5433 user=postgres password=785njsjas88## dbname=makersbnb_test")
   result = connection.query("SELECT * FROM accommodation WHERE id = #{id};")
   result.first
-=======
+end
+
 def load_test_user
   connection = PG.connect("host=makersbnb.c4gsfvuzdyl3.eu-west-2.rds.amazonaws.com port=5433 user=postgres password=785njsjas88## dbname=makersbnb_test")
   connection.exec("INSERT INTO users (name, email, password) VALUES('test_name', 'test_email@email.com', '#{BCrypt::Password.create('password123')}') RETURNING id, name, email;")
->>>>>>> Adding host feature tests
-=======
-def load_test_user
-  connection = PG.connect("host=makersbnb.c4gsfvuzdyl3.eu-west-2.rds.amazonaws.com port=5433 user=postgres password=785njsjas88## dbname=makersbnb_test")
-  connection.exec("INSERT INTO users (name, email, password) VALUES('test_name', 'test_email@email.com', '#{BCrypt::Password.create('password123')}') RETURNING id, name, email;")
->>>>>>> 9defa94536c7f5948dfc37e3cf5262218a0ae362
 end
