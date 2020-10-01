@@ -9,5 +9,4 @@ class Booking
     @date = date
     @status = status
   end
-
 end
