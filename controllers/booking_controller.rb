@@ -6,6 +6,10 @@ class BookingController < Sinatra::Base
 
   enable :sessions
 
+  before do
+    @user = UserService.current_user
+  end
+
   def layout
     { :layout => :layout }
   end

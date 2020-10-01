@@ -1,6 +1,7 @@
 feature 'create a listing' do
   scenario 'host_id clicks on Add Accom and fills out a form' do
     log_in
+    visit('/')
     click_link('Hosting')
     click_button('Add Listing')
     expect(current_path).to eq '/accommodations/create'

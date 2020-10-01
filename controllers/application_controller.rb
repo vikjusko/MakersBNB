@@ -5,8 +5,12 @@ class MakersBNB < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
-  get '/' do
+  before do
     @user = UserService.current_user
+  end
+
+  get '/' do
+    #@user = UserService.current_user
     redirect('/accommodations')
   end
 

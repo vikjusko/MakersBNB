@@ -6,6 +6,10 @@ class UserController < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  before do
+    @user = UserService.current_user
+  end
+
   get '/sign-up' do
     erb :sign_up
   end

@@ -5,6 +5,10 @@ class AccommodationController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
   enable :sessions
+  
+  before do
+    @user = UserService.current_user
+  end
 
   get '/accommodations' do
     @accommodation_list = AccommodationService.all

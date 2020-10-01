@@ -1,5 +1,7 @@
 require './lib/database_connection'
 require_relative './database_helper'
+require_relative './features/web_helpers'
+
 
 ENV["ENVIRONMENT"] = "test"
 ENV["RACK_ENV"] = "test"
