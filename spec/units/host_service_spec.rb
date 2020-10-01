@@ -21,6 +21,7 @@ describe HostService do
       expect(pending_requests[0]).to be_an_instance_of(Booking)
       expect(pending_requests[0].id).to eq booking.id
       expect(pending_requests.count).to eql 1
+      expect(pending_requests[0].status).to eq 'PENDING'
     end
 
     it 'does not return bookings that arent for the provided user_id' do
