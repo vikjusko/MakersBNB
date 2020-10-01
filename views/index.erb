@@ -1,8 +1,15 @@
 <form action="/accommodations" method="get">
   <input type='submit' value="View accommodation">
 </form>
+<% if !@user %>
+Please log in to add Listing
+<% end %>
+
 
 <% if @user %>
+<form action="/accommodations/create" method="get">
+  <input type='submit' value="Add Listing">
+</form>
 <h3> Welcome <%= @user.name %> </h3>
 <%else %>
 <form action='/sign-up' method ='get' >
