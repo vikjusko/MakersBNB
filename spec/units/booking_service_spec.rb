@@ -16,9 +16,11 @@ describe BookingService do
       expect(booking.status).to eq 'PENDING'
 =======
 describe BookingService do 
+  
 	describe "#create" do
-		it "creates a new booking" do
-		accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40)
+    it "creates a new booking" do
+    user = DatabaseConnection.query("INSERT INTO users(name, email, password) VALUES('Xavier', 'test@test.com', 'kjdhfghskfdg') RETURNING id;")
+    accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40, host_id: user.first['id'])
 		bookingservice = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
     expect(bookingservice).to be_a Booking
     expect(bookingservice.accommodation_id).to eq accommodation.id
@@ -28,12 +30,20 @@ describe BookingService do
   	end
   end
 
+<<<<<<< HEAD
   describe '.all' do
     it "returns a list of all bookings" do
       load_test_user
       load_test_accom
       booking = BookingService.create(accommodation_id: '2', user_email: "test@test.com", date: "2020-09-29")
 
+=======
+  describe '#all' do
+    it "produces a list of all bookings" do
+      user = DatabaseConnection.query("INSERT INTO users(name, email, password) VALUES('Xavier', 'test@test.com', 'kjdhfghskfdg') RETURNING id;")
+      accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40, host_id: user.first['id'])
+      bookingservice = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
+>>>>>>> 7803594... (WIP) working out the SQL Query
       bookings = BookingService.all
 			expect(bookings).to be_a Array
       expect(bookings.first.user_email).to eq booking.user_email
@@ -88,8 +98,14 @@ describe BookingService do
 end 
 =======
   describe '#.date_available?' do
-    it 'returns false if date selected is ' do
 
+    it 'returns true OR false if date selected is inside OR outside available dates' do
+      user = DatabaseConnection.query("INSERT INTO users(name, email, password) VALUES('Xavier', 'test@test.com', 'kjdhfghskfdg') RETURNING id;")
+      accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40, host_id: user.first['id'])
+      results1 = BookingService.date_available?("2020-09-30")
+      expect(results1).to eq true
+      results2 = BookingService.date_available?("2020-09-28")
+      expect(results2).to eq false
     end
   end
 end 
