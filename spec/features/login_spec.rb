@@ -9,7 +9,7 @@ feature 'User logging in' do
 		click_button('Log in')
 		expect(page).to have_current_path('/')
 		expect(page).to have_content("Welcome test")
-		log_out
+		UserService.log_out
 	end 
 	
 	scenario 'user cannot login if they havent registered' do

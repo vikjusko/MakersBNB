@@ -2,6 +2,7 @@
 Log in
 </header>
 <h2>Please login here<h2>
+<p id="flash"><%= flash[:notice] %></p>
 <form action='/login' method='post'>
 <input type='email' name='email' placeholder="your email here" required>
 <input type='password' name='password' placeholder="password" required>
