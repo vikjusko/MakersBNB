@@ -14,6 +14,7 @@ def persisted_data(id:)
   connection = PG.connect("host=makersbnb.c4gsfvuzdyl3.eu-west-2.rds.amazonaws.com port=5433 user=postgres password=785njsjas88## dbname=makersbnb_test")
   result = connection.query("SELECT * FROM accommodation WHERE id = #{id};")
   result.first
+end
 
 def load_test_user
   connection = PG.connect("host=makersbnb.c4gsfvuzdyl3.eu-west-2.rds.amazonaws.com port=5433 user=postgres password=785njsjas88## dbname=makersbnb_test")
