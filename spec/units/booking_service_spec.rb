@@ -3,13 +3,15 @@ require 'accommodation'
 
 describe BookingService do 
 	describe "#create" do
-		it "creates a new booking" do
-		accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", price: 40)
-		bookingservice = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
-    expect(bookingservice).to be_a Booking
-    expect(bookingservice.accommodation_id).to eq accommodation.id
-		expect(bookingservice.user_email).to eq("test@test.com")
-		expect(bookingservice.date).to eq("2020-09-29")
+		it "creates a new booking with the details given and sets status to PENDING" do
+      user = UserService.create
+      accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", price: 40)
+      booking = BookingService.create(accommodation_id: accommodation.id, user_email: "test@test.com", date: "2020-09-29")
+      expect(booking).to be_a Booking
+      expect(booking.accommodation_id).to eq accommodation.id
+      expect(booking.user_email).to eq("test@test.com")
+      expect(booking.date).to eq("2020-09-29")
+      expect(booking.status).to eq 'PENDING'
   	end
   end
 
