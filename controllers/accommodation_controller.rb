@@ -1,4 +1,5 @@
 require './lib/accommodation_service'
+require './lib/user_service'
 
 class AccommodationController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
@@ -11,12 +12,15 @@ class AccommodationController < Sinatra::Base
   end
 
   get '/accommodations/create' do
+   
+    
     erb :accommodation_create
   end
 
-  post '/accommodations/new' do
-    AccommodationService.create(name: params[:name], description: params[:description], location: params[:location], price: params[:price], host_id: 6)
-    
+  post '/accommodations/create' do
+    host = UserService.current_user
+    AccommodationService.create(name: params[:name], description: params[:description], location: params[:location], price: params[:price], host_id: host.id)
+    #TODO add Availabilty.create method to deal with dates
     redirect '/'
   end
 
