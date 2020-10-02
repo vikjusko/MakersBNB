@@ -5,9 +5,6 @@ class MakersBNB < Sinatra::Base
   enable :sessions, :method_override  
   set :public_folder, File.expand_path('../../public', __FILE__)
 
-  set :public_folder, Proc.new { File.join(root, "public") }
-  
-
   register Sinatra::Flash
 
   before do
@@ -15,7 +12,6 @@ class MakersBNB < Sinatra::Base
   end
 
   get '/' do
-    #@user = UserService.current_user
     redirect('/accommodations')
   end
 
