@@ -1,19 +1,30 @@
 body { 
-  background-color: blue;
+  background-color: white;
+  padding-left: 10em;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.site_header {
+  font-size: 3em;
+  padding-left: 0em;
 }
 
 .nav_bar {
   height: 100%;
-  width: 4em; 
+  width: 8.8em; 
   position: fixed; 
   z-index: 1; 
   top: 0; 
   left: 0;
-  background-color: beige;
+  background-color: #f39b6d;
   overflow-x: hidden; 
-  padding-top: 3em;
+  padding-top: 6em;
   padding-left: 0.3em;
   text-decoration: none;
+}
+
+.nav_link {
+  padding-left: 0.5em;
 }
 
 #flash {
@@ -21,12 +32,72 @@ body {
   text-align: center;
 }
 
-p {
-  color: brown;
+a {
+  text-decoration: none;
+  text-emphasis: none;
+  color: black;
 }
 
-#test {
-  color: brown;
-  text-decoration: chartreuse;  
-  font-size: 25em;
+a:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+a:visited { 
+  text-emphasis: none;
+  color: black;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-left: 13em;
+  font-size: 75%;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=email]:focus {
+  border: 3px solid #555;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+input[type=password]:focus {
+  border: 3px solid #555;
 }
