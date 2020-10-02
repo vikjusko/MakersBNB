@@ -1,9 +1,9 @@
 # MakersBNB
 
-#### Databases hosted online by Amazon
+#### Databases hosted online by AWS
 
-- makersbnb
-- makersbnb_test
+- makersbnb - Deployment
+- makersbnb_test - Testing
 
 #### AccommodationController class
 
@@ -70,6 +70,8 @@ File structure:
 |
 |-- views
 ```
+
+![MakersBnB diagrams](https://app.lucidchart.com/publicSegments/view/4e1c2614-06ba-4704-9769-db68cf4ea3c5/image.png "MakersBnB Design")
 
 ### User stories:
 
