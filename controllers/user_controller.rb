@@ -33,7 +33,7 @@ class UserController < Sinatra::Base
     if UserService.login(email: params[:email], password: params[:password])
       redirect '/'
     else  
-      flash[:notice] = "Invalid credentials" 
+      flash[:notice] = "Invalid credentials"
       redirect '/login'
     end
   end

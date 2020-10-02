@@ -13,7 +13,7 @@
 
 <% if @user %>
   <a class="nav_link" href="/hosting">Hosting</a>  
-  <a class="nav_link" href="/logout">Log out</a>
+  <a class="nav_link" href="/log-out">Log out</a>
 <% else %>
   <a class="nav_link" href="/sign-up">Sign up</a>
   <a class="nav_link" href="/login">Log in</a>
@@ -21,6 +21,9 @@
 </div>
 
 <hr>
+<p id="flash"><%= flash[:notice] %></p>
+
+
 
 <%= yield %>
 
