@@ -3,6 +3,8 @@ class MakersBNB < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
   enable :sessions, :method_override  
+  set :public_folder, File.expand_path('../../public', __FILE__)
+
   register Sinatra::Flash
 
   before do
