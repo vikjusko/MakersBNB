@@ -26,7 +26,7 @@ class BookingController < Sinatra::Base
   end
 
   post '/booking/new' do
-    @booking = BookingService.create(accommodation_id: params[:accommodation_id], user_email: params[:user_email], date: params[:date])
+    @booking = BookingService.create(accommodation_id: params[:accommodation_id], user_email: @user.email, date: params[:date])
     if @booking == false
       flash[:notice] = "Requested date is unavailable"
       redirect "/booking?accommodation_id=#{params[:accommodation_id]}"

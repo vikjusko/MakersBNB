@@ -5,7 +5,6 @@
 <% else %>
     <h1>Start your booking: <h1>
     <form action="/booking/new" method="post">
-    <input type="email" name="user_email" placeholder="your email here" required>
     <input type="date" name="date" placeholder="YYYY-MM-DD">
       <input type="hidden" name="accommodation_id" value="<%= @accommodation_id %>">
     <input type='submit' name="Request booking">

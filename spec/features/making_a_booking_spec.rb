@@ -8,10 +8,10 @@ feature 'making a booking' do
     click_link('See more', :match => :first)
     click_link('Request Booking')
     expect(page).to have_content("Start your booking:")
-    fill_in("user_email", with: "test@test.com")
     fill_in("date", with: "2020-09-29")
     click_on("Request booking")
     expect(page).to have_content("Your booking has been requested")
+    log_out
   end
 
   scenario 'displays error when unauthenticated user requests booking' do
@@ -21,10 +21,6 @@ feature 'making a booking' do
     visit('/accommodations')
     click_link('See more', :match => :first)
     click_link('Request Booking')
-    expect(page).to have_content("Start your booking:")
-    fill_in("user_email", with: "test@test.com")
-    fill_in("date", with: "2020-09-29")
-    click_on("Request booking")
     expect(page).to have_content("You must be logged in to request a booking")
   end
 
@@ -39,10 +35,10 @@ feature 'making a booking' do
     click_link('See more', :match => :first)
     click_link('Request Booking')
     expect(page).to have_content("Start your booking:")
-    fill_in("user_email", with: "test@test.com")
     fill_in("date", with: "2020-10-29")
     click_on("Request booking")
     expect(page).to have_content("Requested date is unavailable")
+    log_out
   end
 
   # add test for non-functional email.

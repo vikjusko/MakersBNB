@@ -26,7 +26,7 @@ end
 
 def log_out
   visit '/'
-  click_button 'Log out'
+  click_link 'Log out'
 end
 
 def log_in
