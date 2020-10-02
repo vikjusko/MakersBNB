@@ -13,7 +13,23 @@ describe BookingService do
       expect(booking.user_email).to eq("test@test.com")
       expect(booking.date).to eq("2020-09-29")
       expect(booking.status).to eq 'PENDING'
-  	end
+    end
+
+    it 'returns true if inside available dates AND not already booked' do
+      load_test_user
+      accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40, host_id: 1,)
+      actual = BookingService.create(accommodation_id: accommodation.id, user_email: 'test_email@email.com', date: '2020-09-30')
+      expect(actual).to be_an_instance_of Booking
+    end
+
+    it 'returns false if outside available dates' do
+
+    end
+
+    it 'returns false if inside available dates BUT already booked' do
+      
+    end
+
   end
 
   describe '.all' do
@@ -73,15 +89,4 @@ describe BookingService do
 
   end
 end 
-  describe '#.date_available?' do
-
-    it 'returns true OR false if date selected is inside OR outside available dates' do
-      user = DatabaseConnection.query("INSERT INTO users(name, email, password) VALUES('Xavier', 'test@test.com', 'kjdhfghskfdg') RETURNING id;")
-      accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40, host_id: user.first['id'])
-      results1 = BookingService.date_available?("2020-09-30")
-      expect(results1).to eq true
-      results2 = BookingService.date_available?("2020-09-28")
-      expect(results2).to eq false
-    end
-  end
-end 
+ 
