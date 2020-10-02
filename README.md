@@ -54,6 +54,18 @@ $ bundle install
 $ rackup
 ```
 
+File structure:
+
+├── app.rb
+├── controllers
+├── db
+│   └── migration
+├── lib
+├── spec
+│   ├── features
+│   └── units   
+└── views
+
 ###User stories:
 
 As a user,
