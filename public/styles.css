@@ -7,7 +7,10 @@ body {
 
 .card {
    text-align: justify;
-    text-justify: inter-word;
+   text-justify: inter-word;
+   font-size: 90%;
+    height: 70%;
+
 }
 .site_header {
   font-size: 3em;
@@ -60,13 +63,14 @@ a:visited {
   width: 100%;
   padding-left: 13em;
   font-size: 75%;
+  z-index: 15;
 }
 input[type="submit"] {
     -moz-appearance: button;
     -moz-binding: none;
     -moz-box-sizing: border-box;
     -moz-user-select: none;
-    background-color: #AFEEEE;
+    background-color: #E7E6F7;
     border: 2px outset buttonface;
     color: buttontext;
     cursor: default;
@@ -79,7 +83,23 @@ input[type="submit"] {
     width: 300px;
     height: 55px;
     border-radius: 8px;
+    text-align: center; 
 }
+input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  width: 300px;
+   height: 55px;
+   text-align: center;
+}
+
+
 input[type=text] {
   width: 100%;
   padding: 12px 20px;
@@ -89,6 +109,9 @@ input[type=text] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  width: 300px;
+   height: 55px;
+   text-align: center;
 }
 
 input[type=email] {
@@ -100,6 +123,9 @@ input[type=email] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  width: 300px;
+    height: 55px;
+    text-align: center;
 }
 
 input[type=password] {
@@ -111,6 +137,9 @@ input[type=password] {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  width: 300px;
+  height: 55px;
+  text-align: center;
 }
 
 input[type=email]:focus {
@@ -125,3 +154,7 @@ input[type=password]:focus {
   border: 3px solid #555;
 }
 
+.create {
+   align-items: start;
+  justify-content: space-between;
+}
