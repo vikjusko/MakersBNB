@@ -6,6 +6,7 @@ class HostController < Sinatra::Base
 
   enable :sessions, :method_override  
   set :public_folder, File.expand_path('../../public', __FILE__)
+
   
   register Sinatra::Flash
 
