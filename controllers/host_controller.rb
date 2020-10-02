@@ -1,10 +1,10 @@
 require './lib/host_service'
-#require './lib/user_service'
+require './lib/booking_service'
 
 class HostController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
-  enable :sessions
+  enable :sessions, :method_override  
   register Sinatra::Flash
 
   before do
@@ -12,8 +12,15 @@ class HostController < Sinatra::Base
   end
 
   get '/hosting' do
+    @listing = HostService.all(@user.id)
+    @requests = HostService.find_pending_requests(@user.id)
     erb :hosting
-    
+  end
+
+  post '/hosting/request/:id' do
+    BookingService.confirm_booking(params[:id])
+    flash[:notice] = "Booking is confirmed"
+    redirect('/hosting')
   end
 
 end

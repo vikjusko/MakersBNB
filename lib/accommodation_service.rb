@@ -18,4 +18,4 @@ class AccommodationService
     result = DatabaseConnection.query("SELECT * FROM accommodation WHERE id=#{id};")[0]
     Accommodation.new(id: result['id'], name: result['name'], description: result['description'], location: result['location'], price: result['price'], host_id: result['host_id'])
   end
-end 
+end

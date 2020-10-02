@@ -5,10 +5,46 @@
     <input type='submit' value="Add Listing">
   </form>
 
-<% @requests = HostService.find_pending_requests(@user.id)  %>
+<% if @listing.length > 0 %>
+  <% @listing.each { |listing| %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= listing.name %></h5>
+      <p class="card-text"><%= listing.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= listing.location %></li>
+      <li class="list-group-item">£<%= listing.price %></li>
+    </ul>
+  </div>
+<% } %>
 
-<% if @requests.length > 0 %>
-  <p> some placeholder text </p>
+        <% if @requests.length > 0 %>
+        <h1>Outstanding bookings</h1>
+        <% @requests.each { |request| %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= request.id %></h5>
+            <p class="card-text"><%= request.accommodation_id %></p>
+            <% accommodation = AccommodationService.find(request.accommodation_id) %>
+          <p> <%= accommodation.name %> </p>
+          <p> <%= accommodation.description %> </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= request.date %></li>
+            <li class="list-group-item"><%= request.status %></li>
+          </ul>
+
+          <form action="hosting/request/<%=request.id%>" method='post'>
+          <input type='submit' value="Confirm the booking">
+          </form>
+
+        </div>
+          <% } %>
+        <% end %>
+
 <% else %>
     <p>"You aren't hosting any properties yet."</p>
 <% end %>
