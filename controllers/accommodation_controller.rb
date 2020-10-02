@@ -3,12 +3,9 @@ require './lib/user_service'
 
 class AccommodationController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
-<<<<<<< HEAD
   set :public_folder, File.expand_path('../../public', __FILE__)
   
   enable :sessions, :method_override
-=======
->>>>>>> c0a0dae08564cf8d1e8a1999a09640d497f7f9f1
   set :public_folder, Proc.new { File.join(root, "../public") }
 
   enable :sessions

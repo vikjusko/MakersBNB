@@ -61,7 +61,25 @@ a:visited {
   padding-left: 13em;
   font-size: 75%;
 }
-
+input[type="submit"] {
+    -moz-appearance: button;
+    -moz-binding: none;
+    -moz-box-sizing: border-box;
+    -moz-user-select: none;
+    background-color: #AFEEEE;
+    border: 2px outset buttonface;
+    color: buttontext;
+    cursor: default;
+    font-family: 'Notable', sans-serif;;
+    line-height: normal;
+    padding: 0 6px;
+    text-align: center;
+    text-shadow: none;
+    white-space: pre;
+    width: 300px;
+    height: 55px;
+    border-radius: 8px;
+}
 input[type=text] {
   width: 100%;
   padding: 12px 20px;
@@ -106,3 +124,4 @@ input[type=text]:focus {
 input[type=password]:focus {
   border: 3px solid #555;
 }
+

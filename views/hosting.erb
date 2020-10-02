@@ -1,9 +1,7 @@
 
-<h3> Welcome <%= @user.name %> </h3>
+<h2> <%= @user.name %>'s properties </h2>
 
-  <form action="/accommodations/create" method="get">
-    <input type='submit' value="Add Listing">
-  </form>
+
 
 <% if @listing.length > 0 %>
   <% @listing.each { |listing| %>
@@ -13,13 +11,12 @@
       <h5 class="card-title"><%= listing.name %></h5>
       <p class="card-text"><%= listing.description %></p>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= listing.location %></li>
-      <li class="list-group-item">£<%= listing.price %></li>
-    </ul>
+    <class="list-group list-group-flush">
+      <p class="list-group-item">Location<%= listing.location %><br>
+      <p class="list-group-item">Price per night: £<%= listing.price %><br>
   </div>
 <% } %>
-<h1>Outstanding bookings</h1>
+<h2>Pending requests</h2>
 
         <% if @requests.length > 0 %>
         <p> Outstanding bookings: </p>
@@ -45,10 +42,15 @@
         </div>
           <% } %>
         <% else %>
-        <p>Nothing to review</p>
+        <p>You have no pending booking requests</p>
   
         <% end %>
 
 <% else %>
     <p>You aren't hosting any properties yet.</p>
 <% end %>
+<h2>Add a new listing</h2>
+
+<form action="/accommodations/create" method="get">
+  <input type='submit' value="Add Listing">
+  </form>
