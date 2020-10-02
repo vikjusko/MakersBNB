@@ -3,30 +3,38 @@ require 'accommodation'
 
 describe BookingService do
 	describe ".create" do
-		it "creates a new booking with the details given and sets status to PENDING" do
-      load_test_user
-      load_test_accom
-      booking = BookingService.create(accommodation_id: '2',
-        user_email: "test@test.com", date: "2020-09-29")
-      expect(booking).to be_a Booking
-      expect(booking.accommodation_id).to eq '2'
-      expect(booking.user_email).to eq("test@test.com")
-      expect(booking.date).to eq("2020-09-29")
-      expect(booking.status).to eq 'PENDING'
+    context 'requested booking date is inside available dates AND not already booked' do
+      it "creates a new booking with the details given and sets status to PENDING" do
+        load_test_user
+        load_test_accom
+        booking = BookingService.create(accommodation_id: '2',
+                                        user_email: "test@test.com", date: "2020-09-29")
+        expect(booking).to be_a Booking
+        expect(booking.accommodation_id).to eq '2'
+        expect(booking.user_email).to eq("test@test.com")
+        expect(booking.date).to eq("2020-09-29")
+        expect(booking.status).to eq 'PENDING'
+      end
     end
-
-    it 'returns true if inside available dates AND not already booked' do
-      load_test_user
-      accommodation = AccommodationService.create(name: "Nice cottage", description: "Cottage in London", location: "London", from_date: "2020-09-29", to_date: "2020-10-29", price: 40, host_id: 1,)
-      actual = BookingService.create(accommodation_id: accommodation.id, user_email: 'test_email@email.com', date: '2020-09-30')
-      expect(actual).to be_an_instance_of Booking
+    context 'requested booking date is outside available dates' do
+      it 'returns false' do
+        load_test_user
+        load_test_accom
+        booking = BookingService.create(accommodation_id: '2',
+                                        user_email: "test@test.com", date: "2020-11-29")
+        expect(booking).to eq false
+      end
     end
+    context 'requested booking date is inside available dates BUT already booked' do
+      it 'returns false' do
+        load_test_user
+        load_test_accom
+        DatabaseConnection.query("INSERT INTO booking (accommodation_id, user_email, date, status) VALUES(1, 'test@test.com', '2020-10-01', 'CONFIRMED')")
 
-    it 'returns false if outside available dates' do
-
-    end
-
-    it 'returns false if inside available dates BUT already booked' do
+        booking = BookingService.create(accommodation_id: '1',
+                                        user_email: "test@test.com", date: "2020-10-01")
+        expect(booking).to eq false
+      end
       
     end
 

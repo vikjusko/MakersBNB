@@ -52,16 +52,30 @@ class BookingService
   
 private
 
-  def self.date_available?(accommodation_id, date)
-    availability = DatabaseConnection.query("SELECT from_date, to_date FROM availability WHERE accommodation_id = '#{accommodation_id}';")[0]
+  def self.date_available?(accom_id, date)
+    booking_date = Date.parse(date)
+    available = self.accom_availability(accom_id)
+
+    return false unless booking_date.between?(available[:from_date], available[:to_date])
+    return false if self.booked_dates(accom_id).include?(booking_date)
+    true
+  end
+
+  def self.accom_availability(accommodation_id)
+    availability = DatabaseConnection.query(
+      "SELECT from_date, to_date FROM availability
+       WHERE accommodation_id = '#{accommodation_id}';")[0]
     from_date = Date.parse(availability['from_date'])
     to_date = Date.parse(availability['to_date'])
-    booked_dates = DatabaseConnection.query("SELECT date FROM booking WHERE accommodation_id = '#{accommodation_id}' AND status = 'CONFIRMED';")
-    booked_dates.map! {|date| Date.parse date}
+    { from_date: from_date, to_date: to_date }
+  end
 
-    return false unless date.between?(from_date, to_date) 
-    return false if booked_dates.include?(date)
-    true
+  def self.booked_dates(accommodation_id)
+    booked_dates = DatabaseConnection.query(
+      "SELECT date FROM booking
+      WHERE accommodation_id = '#{accommodation_id}'
+      AND status = 'CONFIRMED';")
+    booked_dates.map { |booking| Date.parse(booking['date']) }
   end
 
 end
