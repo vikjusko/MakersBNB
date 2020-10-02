@@ -3,30 +3,37 @@
 <head>
   <title>One night stays</title>
   <link rel="stylesheet" type="text/css" href="/styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
 </head>
 
-<p id="test">AHHHHH</p>
-
-<body>
 <a class="site_header" href="/">One night stays</a>
 
 <div class="nav_bar">
-  <a class="nav_link" href="/">Home</a>
+  <% #<a class="nav_link" href="/">Home</a> %>
   <a class="nav_link" href="/accommodations">Accommodation</a>
-
+  <p>
 <% if @user %>
   <a class="nav_link" href="/hosting">Hosting</a>  
+  <p>
   <a class="nav_link" href="/log-out">Log out</a>
 <% else %>
   <a class="nav_link" href="/sign-up">Sign up</a>
+  <p>
   <a class="nav_link" href="/login">Log in</a>
 <% end %>
 </div>
 
+<body>
 <hr>
 <p id="flash"><%= flash[:notice] %></p>
 
 <%= yield %>
 
 </body>
+
+<div class="footer">
+<p>Created by Makers September Team Red</p>
+</div>
+
 </html>

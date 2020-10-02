@@ -6,7 +6,8 @@ class AccommodationController < Sinatra::Base
   set :public_folder, File.expand_path('../../public', __FILE__)
   
   enable :sessions, :method_override
-  set :public_folder, Proc.new { File.join(root, "public") }
+  set :public_folder, Proc.new { File.join(root, "../public") }
+
   enable :sessions
   register Sinatra::Flash
 
