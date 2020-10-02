@@ -62,6 +62,8 @@ describe HostService do
     end
   end
 
+    #describe "#all" do 
+
   # TODO booking not found
   # TODO current user not the host for the booking accom
 end

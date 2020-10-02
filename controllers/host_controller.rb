@@ -12,6 +12,7 @@ class HostController < Sinatra::Base
   end
 
   get '/hosting' do
+    p params
     erb :hosting
     
   end
