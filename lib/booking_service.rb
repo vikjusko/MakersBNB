@@ -33,6 +33,7 @@ class BookingService
       WHERE id = #{booking_id}
       RETURNING id, accommodation_id, user_email, date, status;"
     )
+    return false unless result.count == 1
     return_booking(result[0])
   end
 
