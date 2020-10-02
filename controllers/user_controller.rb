@@ -3,7 +3,7 @@ require 'sinatra/flash'
 class UserController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
-  enable :sessions
+  enable :sessions, :method_override  
   register Sinatra::Flash
 
   before do

@@ -4,7 +4,7 @@ require './lib/user_service'
 class BookingController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
-  enable :sessions
+  enable :sessions, :method_override  
   register Sinatra::Flash
 
 
