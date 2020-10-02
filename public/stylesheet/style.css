@@ -1,0 +1,32 @@
+body { 
+  background-color: blue;
+  text-align: center;
+  text-justify: inter-word;
+}
+
+header {
+   text-align: center;
+    text-justify: inter-word;
+}
+.nav_bar {
+  height: 100%;
+  width: 4em; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: beige;
+  overflow-x: hidden; 
+  padding-top: 3em;
+  padding-left: 0.3em;
+  text-decoration: none;
+}
+
+#flash {
+  color: lightcoral;
+  text-align: center;
+}
+
+p {
+  color: brown;
+}
