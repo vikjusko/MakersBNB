@@ -69,7 +69,7 @@ So that i can book the accommodation
 I would like to be able to submit a request with my email address and dates of choice
 
 As a user,
-So that I can see a confirmation of my request being sent off,
+So that I can see a confirmation of my request being sent off ,
 I would like to see a confirmation message re it on the website
 
 Host stories:
