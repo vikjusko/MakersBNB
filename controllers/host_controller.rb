@@ -17,8 +17,8 @@ class HostController < Sinatra::Base
     erb :hosting
   end
 
-  get '/hosting/requests' do
-    "placeholder text"
+  post '/hosting/request/:id' do
+    
   end
 
 end
