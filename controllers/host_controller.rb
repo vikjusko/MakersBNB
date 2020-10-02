@@ -7,8 +7,13 @@ class HostController < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+  before do
+    @user = UserService.current_user
+  end
+
   get '/hosting' do
-    "You aren't hosting any properties yet."
+    erb :hosting
+    
   end
 
 end

@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>One night stays</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <% #<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> %>
 </head>
 
 <body>
@@ -11,18 +11,19 @@
   <a class="nav_link" href="/">Home</a>
   <a class="nav_link" href="/accommodations">Accommodation</a>
 
-<% unless @user %>
+<% if @user %>
+  <a class="nav_link" href="/hosting">Hosting</a>  
+  <a class="nav_link" href="/log-out">Log out</a>
+<% else %>
   <a class="nav_link" href="/sign-up">Sign up</a>
   <a class="nav_link" href="/login">Log in</a>
-<% else %>
-<a class="nav_link" href="/hosting">Hosting</a>  
-<a class="nav_link" href="/logout">Log out</a>
 <% end %>
 </div>
 
 <hr>
+<p id="flash"><%= flash[:notice] %></p>
 
-<P> THIS IS THE LAYOUT </P>
+
 
 <%= yield %>
 
