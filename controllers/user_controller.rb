@@ -31,6 +31,7 @@ class UserController < Sinatra::Base
 
   post '/login' do
     if UserService.login(email: params[:email], password: params[:password])
+      flash[:notice] = "You have been logged in." # TODO: update to include name. @user.name not working. Undefined class @user.
       redirect '/'
     else  
       flash[:notice] = "Invalid credentials"
