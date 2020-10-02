@@ -2,7 +2,7 @@
 <% @accommodation_list.each do |space| %>
 
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src="<%=space.image_url%>" alt="A lovely property">
   <div class="card-body">
     <h5 class="card-title"><%= space.name%></h5>
     <p class="card-text"><%= space.description%></p>

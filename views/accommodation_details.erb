@@ -1,18 +1,16 @@
 <body>
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
+<div class="card">
+  <img class="card-img-top" src="<%= @accommodation.image_url %>" alt="A beautiful property">
   <div class="card-body">
     <h5 class="card-title"><%= @accommodation.name %></h5>
     <p class="card-text"><%= @accommodation.description %></p>
   </div>
-    <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= @accommodation.location %></li>
-    <li class="list-group-item">£<%= @accommodation.price %></li>
-  </ul>
+    <p class="list-group list-group-flush">
+    <p class="list-group-item">Location: <%= @accommodation.location %><br>
+    <p class="list-group-item">Price per night: £<%= @accommodation.price %><br>
+    <br>
  <a href="/booking?accommodation_id=<%= @accommodation.id %>" class="btn btn-primary">Request Booking</a>
 </div>
-
-
 </body>
-</html>
+

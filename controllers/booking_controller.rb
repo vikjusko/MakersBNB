@@ -5,6 +5,9 @@ class BookingController < Sinatra::Base
   set :views, File.expand_path('../../views', __FILE__)
 
   enable :sessions, :method_override  
+  set :public_folder, Proc.new { File.join(root, "../public") }
+  
+
   register Sinatra::Flash
 
 
