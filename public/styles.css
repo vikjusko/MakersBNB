@@ -4,6 +4,11 @@ body {
   font-family: 'Noto Sans JP', sans-serif;
 }
 
+
+.card {
+   text-align: justify;
+    text-justify: inter-word;
+}
 .site_header {
   font-size: 3em;
   padding-left: 0em;
