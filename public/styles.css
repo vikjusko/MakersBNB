@@ -142,6 +142,34 @@ input[type=password] {
   text-align: center;
 }
 
+input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  width: 300px;
+  height: 55px;
+  text-align: center;
+}
+
+.description {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  width: 300px;
+  height:200px;
+  text-align: center;
+}
+
 input[type=email]:focus {
   border: 3px solid #555;
 }
@@ -157,4 +185,14 @@ input[type=password]:focus {
 .create {
    align-items: start;
   justify-content: space-between;
+}
+
+.card-img-top {
+  border-radius: 8px;
+  max-width: 100%; 
+}
+
+.card-img-top-two {
+max-width: 60%;
+border-radius: 8px;
 }

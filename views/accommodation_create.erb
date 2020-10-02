@@ -1,17 +1,13 @@
 <h2>Please add accommodations details</h2>
-
 <form action='/accommodations/create' method='post'>
-Name: 
-<input type='text' name='name' required><br>
-Description: 
-<input type='text' name='description' required><br>
-Location: 
-<input type='text' name='location' required><br>
-Price: 
-<input type="number" min="20" step="1" max="2500" name='price' required><br>
-From Date: 
+<input type='text' name='name' placeholder="Name" required><br>
+<input class="description" type='text' name='description' placeholder="Description here" required>
+  <br>
+<input type='text' name='location' placeholder="Location" required><br>
+<input type="number" min="20" step="1" max="2500" name='price' placeholder="£££" required><br>
+From Date: <br>
 <input type='date' name='from_date' required><br>
-To Date: 
+To Date: <br>
 <input type='date' name='to_date' required><br>
 <input class="button" type='submit' value='Submit'>
 </form>
