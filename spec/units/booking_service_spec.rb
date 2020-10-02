@@ -90,11 +90,17 @@ describe BookingService do
       end
 
       context 'booking date is not available' do
-        #TODO once the availability checks are done
+        
+        it 'returns false' do
+          load_test_user
+          load_test_accom
+          booking = BookingService.create(accommodation_id: 1, user_email: "test@test.com", date: "2020-09-29")
+          DatabaseConnection.query("INSERT INTO booking (accommodation_id, user_email, date, status) VALUES(1, 'test@test.com', '2020-09-29', 'CONFIRMED')")
+          actual = BookingService.confirm_booking(booking.id)
+          expect(actual).to be false
+        end
       end
-
     end
-
   end
-end 
+end
  

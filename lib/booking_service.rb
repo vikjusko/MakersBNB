@@ -28,6 +28,8 @@ class BookingService
   end
 
   def self.confirm_booking(booking_id)
+    booking = self.find_booking(booking_id)
+    return false unless self.date_available?(booking.accommodation_id, booking.date)
     result = DatabaseConnection.query(
       "UPDATE booking
       SET status = 'CONFIRMED'
