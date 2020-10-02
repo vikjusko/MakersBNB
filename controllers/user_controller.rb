@@ -16,6 +16,7 @@ class UserController < Sinatra::Base
 
   post '/users/new' do
     UserService.register(email: params[:email], name: params[:name], password: params[:password])
+    flash[:notice] = "Thank you for signing up"
     redirect '/'
   end
 
