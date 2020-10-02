@@ -29,6 +29,9 @@
     <div class="card-body">
       <h5 class="card-title"><%= request.id %></h5>
       <p class="card-text"><%= request.accommodation_id %></p>
+      <% accommodation = AccommodationService.find(request.accommodation_id) %>
+     <p> <%= accommodation.name %> </p>
+     <p> <%= accommodation.description %> </p>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item"><%= request.date %></li>
