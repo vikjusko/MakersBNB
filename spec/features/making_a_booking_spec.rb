@@ -1,5 +1,6 @@
 feature 'making a booking' do
   scenario 'user inputs email & date and hits submit' do
+    load_test_user
     load_test_accom
 
     visit('/accommodations')

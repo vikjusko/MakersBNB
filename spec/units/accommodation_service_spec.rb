@@ -13,6 +13,7 @@ describe AccommodationService do
 
   describe '#.find(id)' do
     it 'returns the accommodation object with the given id' do
+      load_test_user
       load_test_accom
 
       accom = AccommodationService.find(1)
