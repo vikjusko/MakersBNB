@@ -5,7 +5,7 @@ class AccommodationService
 
   def self.all
     result = DatabaseConnection.query("SELECT * FROM accommodation;")
-    result.map {|accommodation| Accommodation.new(id: accommodation['id'], name: accommodation['name'], description: accommodation['description'], location: accommodation['location'], price: accommodation['price'], host_id: accommodation['host_id']) }
+    result.map {|accommodation| Accommodation.new(id: accommodation['id'], name: accommodation['name'], description: accommodation['description'], location: accommodation['location'], price: accommodation['price'], host_id: accommodation['host_id'], image_url: accommodation['image_url']) }
   end
 
   def self.create(name:, description:, location:, price:, from_date:, to_date:, host_id:)
@@ -16,6 +16,6 @@ class AccommodationService
 
   def self.find(id)
     result = DatabaseConnection.query("SELECT * FROM accommodation WHERE id=#{id};")[0]
-    Accommodation.new(id: result['id'], name: result['name'], description: result['description'], location: result['location'], price: result['price'], host_id: result['host_id'])
+    Accommodation.new(id: result['id'], name: result['name'], description: result['description'], location: result['location'], price: result['price'], host_id: result['host_id'], image_url: result['image_url'])
   end
 end
