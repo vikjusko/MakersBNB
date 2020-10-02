@@ -1,0 +1,127 @@
+body { 
+  background-color: white;
+  padding-left: 10em;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+.card {
+   text-align: justify;
+    text-justify: inter-word;
+}
+.site_header {
+  font-size: 3em;
+  padding-left: 0em;
+}
+
+.nav_bar {
+  height: 100%;
+  width: 8.8em; 
+  position: fixed; 
+  z-index: 1; 
+  top: 0; 
+  left: 0;
+  background-color: #f39b6d;
+  overflow-x: hidden; 
+  padding-top: 6em;
+  padding-left: 0.3em;
+  text-decoration: none;
+}
+
+.nav_link {
+  padding-left: 0.5em;
+}
+
+#flash {
+  color: lightcoral;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  text-emphasis: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+}
+
+a:visited { 
+  text-emphasis: none;
+  color: black;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-left: 13em;
+  font-size: 75%;
+}
+input[type="submit"] {
+    -moz-appearance: button;
+    -moz-binding: none;
+    -moz-box-sizing: border-box;
+    -moz-user-select: none;
+    background-color: #AFEEEE;
+    border: 2px outset buttonface;
+    color: buttontext;
+    cursor: default;
+    font-family: 'Notable', sans-serif;;
+    line-height: normal;
+    padding: 0 6px;
+    text-align: center;
+    text-shadow: none;
+    white-space: pre;
+    width: 300px;
+    height: 55px;
+    border-radius: 8px;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=email]:focus {
+  border: 3px solid #555;
+}
+
+input[type=text]:focus {
+  border: 3px solid #555;
+}
+
+input[type=password]:focus {
+  border: 3px solid #555;
+}
+
