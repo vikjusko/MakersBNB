@@ -57,6 +57,7 @@ $ rackup
 
 File structure:
 
+```
 |-- app.rb
 |-- controllers
 |-- db
@@ -65,9 +66,10 @@ File structure:
 |-- lib
 |-- spec
 |   |-- features
-|   |-- units   
+|   |-- units 
 |
 |-- views
+```
 
 ### User stories:
 
