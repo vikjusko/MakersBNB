@@ -18,8 +18,12 @@ class HostController < Sinatra::Base
   end
 
   post '/hosting/request/:id' do
-    BookingService.confirm_booking(params[:id])
-    flash[:notice] = "Booking is confirmed"
+    @confirmed = BookingService.confirm_booking(params[:id])
+    if @confirmed == false
+      flash[:notice] = "Booking date is unavailable"
+    else
+      flash[:notice] = "Booking is confirmed"
+    end
     redirect('/hosting')
   end
 
