@@ -62,7 +62,16 @@ describe HostService do
     end
   end
 
-    #describe "#all" do 
+  describe "#all" do
+    it 'returns all the properties owned by a host' do
+      load_test_user
+      load_test_accom
+      expect(HostService.all(1)).to be_a(Array)
+      expect(HostService.all(1)[0]).to be_a(Accommodation)
+      expect(HostService.all(1)[0].id.to_i).to eq 1
+    end
+
+  end
 
   # TODO booking not found
   # TODO current user not the host for the booking accom

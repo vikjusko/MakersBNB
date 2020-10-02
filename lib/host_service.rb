@@ -8,11 +8,11 @@ class HostService
   #   DatabaseConnection.query("SELECT * FROM accommodation WHERE host_id = '#{host_id}';")
   # end
   #
+
   def self.all(host_id)
     result = DatabaseConnection.query("SELECT * FROM accommodation WHERE host_id = #{host_id}")
     result.map { |accommodation| Accommodation.new(id: accommodation["id"], name: accommodation["name"], description: accommodation["description"], location: accommodation["location"], price: accommodation["price"], host_id: accommodation["host_id"]) }
-  end 
-
+  end
 
   def self.find_pending_requests(host_id)
     result = DatabaseConnection.query(

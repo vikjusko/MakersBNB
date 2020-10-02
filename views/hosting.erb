@@ -5,10 +5,18 @@
     <input type='submit' value="Add Listing">
   </form>
 
-<% @listings = HostService.all(@user.id)  %>
+<% if @listing.length > 0 %>
+  <% @listing.each { |listing| %>
+  <p> <%= listing.name %> </p>
+  <p> <%= listing.description %> </p>
+  <p> <%= listing.location %> </p>
+  <% } %>
 
-<% if @listings.length > 0 %>
-  <%= @listings.each do |listing| listing.name end %>
+  <% if 
+  <h1>Outstanding bookings</h1>
+
+
+
 <% else %>
     <p>"You aren't hosting any properties yet."</p>
 <% end %>

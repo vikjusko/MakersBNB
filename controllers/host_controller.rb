@@ -12,9 +12,13 @@ class HostController < Sinatra::Base
   end
 
   get '/hosting' do
-    p params
+    @listing = HostService.all(@user.id)
+    @requests = HostService.find_pending_requests(@user.id)
     erb :hosting
-    
+  end
+
+  get '/hosting/requests' do
+    "placeholder text"
   end
 
 end
