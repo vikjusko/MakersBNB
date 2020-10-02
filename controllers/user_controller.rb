@@ -15,9 +15,13 @@ class UserController < Sinatra::Base
   end
 
   post '/users/new' do
-    UserService.register(email: params[:email], name: params[:name], password: params[:password])
-    flash[:notice] = "Thank you for signing up"
-    redirect '/'
+    if UserService.register(email: params[:email], name: params[:name], password: params[:password]) ## TODO currently broken.
+      flash[:notice] = "Thank you for signing up"
+      redirect '/'
+    else
+      flash[:notice] = "These details are already in use, try signing in instead."
+      redirect '/sign-up'
+    end
   end
 
   get '/login' do 
