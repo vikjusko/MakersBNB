@@ -1,12 +1,14 @@
 
-<% if @user %>
 <h3> Welcome <%= @user.name %> </h3>
 
   <form action="/accommodations/create" method="get">
     <input type='submit' value="Add Listing">
   </form>
 
-<% else %>
-  "You aren't hosting any properties yet."
+<% @requests = HostService.find_pending_requests(@user.id)  %>
 
+<% if @requests.length > 0 %>
+  <p> some placeholder text </p>
+<% else %>
+    <p>"You aren't hosting any properties yet."</p>
 <% end %>
