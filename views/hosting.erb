@@ -11,12 +11,16 @@
   <p> <%= listing.description %> </p>
   <p> <%= listing.location %> </p>
   <% } %>
+  <% end %>
 
-  <% if 
+  <% if @requests.length > 0 %>
   <h1>Outstanding bookings</h1>
-
-
-
+  <% @requests.each { |request| %>
+    <p> <%= request.id %> </p>
+    <p> <%= request.accommodation_id %> </p>
+    <p> <%= request.date %> </p>
+    <p> <%= request.status%> </p>
+    <% } %>
 <% else %>
     <p>"You aren't hosting any properties yet."</p>
 <% end %>
