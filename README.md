@@ -27,7 +27,7 @@
 **_Methods_**
 
 - .all
-- .find_pending_rquests
+- .find_pending_requests
 - .approve_request
 
 #### UserService
