@@ -39,14 +39,15 @@
 - .logout
 - .current_user
 
-###To run tests:
+### To run tests:
 
 ```
 $ bundle install
 $ rspec
 ```
 
-###To run locally:
+### To run locally:
+
 Open browser to http://localhost:9292/
 
 ```
@@ -56,17 +57,19 @@ $ rackup
 
 File structure:
 
-├── app.rb
-├── controllers
-├── db
-│   └── migration
-├── lib
-├── spec
-│   ├── features
-│   └── units   
-└── views
+|-- app.rb
+|-- controllers
+|-- db
+|   |-- migration
+|
+|-- lib
+|-- spec
+|   |-- features
+|   |-- units   
+|
+|-- views
 
-###User stories:
+### User stories:
 
 As a user,
 So that I can see all of the accommodation options
@@ -94,7 +97,7 @@ As host,
 So that a user can book my space,
 I would like for my space to be on the main page with all the spaces - details (location, price, description).
 
-##Group tools used:
+## Group tools used:
 
 Ludichart:
 https://app.lucidchart.com/documents/edit/a9ff61bd-ee1c-41c0-a397-5ca1240fd531/m-5o7ONTd-nK?shared=true#?folder_id=home&browser=icon
