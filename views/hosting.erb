@@ -19,9 +19,10 @@
     </ul>
   </div>
 <% } %>
+<h1>Outstanding bookings</h1>
 
         <% if @requests.length > 0 %>
-        <h1>Outstanding bookings</h1>
+        <p> Outstanding bookings: </p>
         <% @requests.each { |request| %>
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="..." alt="Card image cap">
@@ -43,6 +44,9 @@
 
         </div>
           <% } %>
+        <% else %>
+        <%<p>Nothing to review</p> %>
+  
         <% end %>
 
 <% else %>
